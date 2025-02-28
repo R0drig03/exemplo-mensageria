@@ -6,11 +6,11 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
   imports: [
     ClientsModule.register([
       {
-        name: 'DOWNLOAD_SERVICE',
+        name: 'EMAIL_SERVICE',
         transport: Transport.RMQ,
         options: {
           urls: ['amqp://admin:admin@localhost:5672'],
-          queue: 'download',
+          queue: 'email',
           queueOptions: {
             durable: true,
           },

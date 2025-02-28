@@ -3,11 +3,11 @@ import { ClientProxy } from '@nestjs/microservices';
 
 @Injectable()
 export class RabbitmqService {
-  constructor(@Inject('DOWNLOAD_SERVICE') private client: ClientProxy) {}
+  constructor(@Inject('EMAIL_SERVICE') private client: ClientProxy) {}
 
   emitEmail(body: { email: string; mensagem: string }) {
     try {
-      this.client.emit('download_margem', {
+      this.client.emit('email-envio', {
         id: `${Math.random() * 100}`,
         data: body,
       });

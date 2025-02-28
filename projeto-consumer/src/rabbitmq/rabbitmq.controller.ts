@@ -10,7 +10,7 @@ export class rabbitMQController {
   ) {}
 
   
-  @MessagePattern('consumer')
+  @MessagePattern('email-envio')
   async consumerMensagem(@Payload() data: PayloadInterface, @Ctx() context: RmqContext) {
     await this.mqService.serviceMargem(data, context)
   }

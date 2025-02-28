@@ -17,7 +17,8 @@ export class RabbitMQService {
           
           const channel = contextRMQ.getChannelRef();
           const originalMsg = contextRMQ.getMessage();
-      
+        
+          await new Promise(resolve => setTimeout(resolve, 30000));
           this.logger.log(`${data.id} - Email enviado com sucesso para ${body.email}. mensagem=${body.mensagem}`);
           channel.ack(originalMsg);
           return data;
